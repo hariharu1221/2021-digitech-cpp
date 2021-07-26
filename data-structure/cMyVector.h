@@ -22,6 +22,11 @@ public:
             p[i] = value;
     }
 
+    ~cMyVector()
+    {
+        delete p;
+    }
+
     T& operator[] (int idx)
     {
         if (idx >= now_size)
