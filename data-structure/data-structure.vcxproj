@@ -142,8 +142,6 @@
   <ItemGroup>
     <ClCompile Include="cBinarySearchTree.cpp" />
     <ClCompile Include="cMyHashTable.cpp" />
-    <ClCompile Include="cMyList.cpp" />
-    <ClCompile Include="cTimer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
