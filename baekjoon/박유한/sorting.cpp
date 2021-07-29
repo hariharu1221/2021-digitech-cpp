@@ -161,6 +161,45 @@ void solve_by_insertion_sort(int n)
     }
 }
 
+void quick_sort(vector<int>& v, int s, int e)
+{
+    if (s + 1 > e)
+        return;
+
+    int target = v[s];
+    int l = s + 1;
+    int r = e;
+
+    do
+    {
+        //l이 target보다 큰 순간까지 반복
+        while (l <= r && v[l] < target)
+            ++l;
+        //r이 target보다 작은 순간까지 반복
+        while (r >= l && v[r] > target)
+            --r;
+        //l < r이 아닌 상황이면, 반복문을 탈출할 때가 되었기 때문에 탈출 시켜야 함
+        if(l < r)
+            swap(v[l], v[r]);
+    } while (l < r);
+
+    swap(v[s], v[r]);
+    quick_sort(v, s, r - 1);
+    quick_sort(v, r + 1, e);
+}
+
+void solve_by_quick_sort(int n)
+{
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i)
+        cin >> v[i];
+
+    quick_sort(v, 0, n - 1);
+
+    for (auto iter : v)
+        cout << iter << "\n";
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -171,5 +210,5 @@ int main()
     int n;
     cin >> n;
 
-    solve_by_counting_sort(n);
+    solve_by_quick_sort(n);
 }
