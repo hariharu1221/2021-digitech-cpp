@@ -3,12 +3,16 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
+#include "../../data-structure/cTimer.h"
 
 using namespace std;
 
 //set을 이용한 정렬 방법
 void solve_by_set(int n)
 {
+    //시간 복잡도 : O(n log n)
+    //공간 복잡도 : O(n)
+    //1 1 2 3 4 (1/2/3/4)
     //이진탐색트리 (red-black tree를 이용한 정렬 방법이다)
     set<int> s;
 
@@ -96,6 +100,7 @@ void solve_by_counting_sort(int n)
 //bubble sort(버블정렬)로 정렬하기
 void solve_by_bubble_sort(int n)
 {
+    //시간복잡도 : O(n ^ 2)
     vector<int> v(n);
     for (int i = 0; i < n; ++i)
         cin >> v[i];
@@ -108,15 +113,21 @@ void solve_by_bubble_sort(int n)
         //코드 구현이 제일 간단하고 직관적이라 자주 설명하지만 실 성능은 거의 나락
         for (int j = 0; j < i; ++j)
         {
-            if (v[j] < v[j + 1])
+            if (v[j] > v[j + 1])
                 swap(v[j], v[j + 1]);
         }
+
+        for (auto iter : v)
+            cout << iter << " ";
+        cout << "\n";
     }
+
 }
 
 //selection sort(선택정렬)로 정렬하기
 void solve_by_selection_sort(int n)
 {
+    //시간복잡도 : O(n ^ 2)
     vector<int> v(n);
     for (int i = 0; i < n; ++i)
         cin >> v[i];
@@ -124,7 +135,8 @@ void solve_by_selection_sort(int n)
     for (int i = 0; i < n - 1; ++i)
     {
         //선택정렬은 앞에서 부터 순서대로
-        //이미 정렬된 숫자를 제외한 수 중에서 가장 작은 숫자가 현재 인덱스에 오게 하는 정렬 방법이다.
+        //이미 정렬된 숫자를 제외한 수 중에서
+        //가장 작은 숫자가 현재 인덱스에 오게 하는 정렬 방법이다.
         int min_val = v[i];
         int min_idx = i;
         for (int j = i + 1; j < n; ++j)
@@ -136,17 +148,25 @@ void solve_by_selection_sort(int n)
             }
         }
         swap(v[i], v[min_idx]);
+
+        for (auto iter : v)
+            cout << iter << " ";
+        cout << "\n";
     }
+
 }
 
 //insertion sort(삽입정렬)로 정렬하기
 void solve_by_insertion_sort(int n)
 {
+    //정렬된 상태에서의 시간복잡도 : O(n)
+    //거의 정렬된 상태에서도 굉장히 빠르다.
+    //시간복잡도 : O(n ^ 2)
     vector<int> v(n);
     for (int i = 0; i < n; ++i)
         cin >> v[i];
 
-    for (int i = 1; i < n - 1; ++i)
+    for (int i = 0; i < n; ++i)
     {
         //삽입 정렬은 가장 작은 데이터가 앞에 오게 만드는 정렬 방식이다.
         //정렬되지 않은 인덱스를 기준으로 뒤로 검사해가면서, 본인보다 작은 데이터가 있으면 앞으로 옮긴다.
@@ -158,12 +178,16 @@ void solve_by_insertion_sort(int n)
             v[j + 1] = v[j];
 
         v[j + 1] = target;
+
+        for (auto iter : v)
+            cout << iter << " ";
+        cout << "\n";
     }
 }
 
 void quick_sort(vector<int>& v, int s, int e)
 {
-    if (s + 1 > e)
+    if (s + 6 > e)
         return;
 
     int target = v[s];
@@ -190,6 +214,7 @@ void quick_sort(vector<int>& v, int s, int e)
 
 void solve_by_quick_sort(int n)
 {
+    //시간복잡도 O(n^2)
     vector<int> v(n);
     for (int i = 0; i < n; ++i)
         cin >> v[i];
@@ -210,5 +235,45 @@ int main()
     int n;
     cin >> n;
 
-    solve_by_quick_sort(n);
+    solve_by_counting_sort(n);
 }
+
+//bubble_sort
+// O(n ^ 2)
+// 1024 + 1023 + 1022 + 1021 ---
+// 524800
+
+//merge_sort
+//O(n log n)
+//8 6 3 4 5 7 9 1
+//(((8 6)(3 4))((5 7)(9 1)))
+//1024개의 데이터를 10번 검사 = 10240
+//(6 8 3 4)((5 7) (1 9))
+//(3 4 6 8)(1 5 7 9)
+//(1 3 4 5 6 7 8 9)
+
+//quick_sort
+//O(n ^ 2) : 최악의 상황
+//O(n log n) : 평균적인 상황
+//8 6 3 4 5 7 9 1
+//(3 1) 4 (8 6 5 7 9)
+//1 3 4 ((6 5) 7 (8 9)
+//1 3 4 5 6 7 8 9
+
+//8 4a 5 4b 3
+//3 4b 4a 5 8
+
+//heap_sort
+//O(n log n)
+//8 6 3 4 5 7 9 1
+//       8
+//     6   7
+//   4  5 3  1
+
+//[ 6 8 4 5 3 7 ]
+// 9
+
+//[2 2 2 1 2 0 1]
+//5 2 3 1 4 2 3 5 1 7
+
+//1 1 2 2 3 3 4 5 5 7
