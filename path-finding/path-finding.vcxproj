@@ -148,6 +148,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cKeyManager.h" />
+    <ClInclude Include="cMainGame.h" />
+    <ClInclude Include="cMap.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="path-finding.h" />
     <ClInclude Include="pch.h" />
@@ -155,6 +158,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cKeyManager.cpp" />
+    <ClCompile Include="cMainGame.cpp" />
+    <ClCompile Include="cMap.cpp" />
     <ClCompile Include="path-finding.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

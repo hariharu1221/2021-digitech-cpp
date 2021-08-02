@@ -10,4 +10,12 @@
 // 여기에 미리 컴파일하려는 헤더 추가
 #include "framework.h"
 
+constexpr int WINSIZEX = 1080;
+constexpr int WINSIZEY = 720;
+
+extern HWND hWnd;
+
+#include "cKeyManager.h"
+static cKeyManager g_KeyManager;
+
 #endif //PCH_H
