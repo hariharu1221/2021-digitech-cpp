@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="10162 전자레인지.cpp" />
+    <ClCompile Include="2720 세탁소.cpp" />
     <ClCompile Include="Fibonacci.cpp" />
     <ClCompile Include="sort.cpp" />
   </ItemGroup>
