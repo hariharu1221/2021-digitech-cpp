@@ -13,7 +13,7 @@ void cMainGame::Release()
 
 void cMainGame::Update()
 {
-    g_KeyManager.Update();
+    KEYMANAGER.Update();
     map.Update();
 }
 

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "cKeyManager.h"
+#include <iostream>
 
 cKeyManager::cKeyManager()
 {
@@ -11,7 +12,9 @@ void cKeyManager::Update()
 {
     last_state = now_state;
     for (int i = 0; i < 256; ++i)
+    {
         now_state[i] = GetAsyncKeyState(i) & 0x8000;
+    }
 }
 
 bool cKeyManager::IsOnceKeyDown(int key)
