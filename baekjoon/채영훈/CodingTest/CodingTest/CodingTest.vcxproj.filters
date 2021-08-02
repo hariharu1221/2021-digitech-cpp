@@ -36,6 +36,12 @@
     <ClCompile Include="TripleLong.cpp">
       <Filter>자료형</Filter>
     </ClCompile>
+    <ClCompile Include="Greedy - 체육복.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1018 - 체스판 다시 칠하기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TripleLong.h">
