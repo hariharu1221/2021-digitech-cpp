@@ -1,17 +1,17 @@
 #include "pch.h"
-#include "cMap.h"
+#include "cMapDijk.h"
 #include "cKeyManager.h"
 
-cMap::cMap()
-    :cell_table(WINSIZEY / CELL_SIZE, vector<cCell>(WINSIZEX / CELL_SIZE)), wall_brush(nullptr)
+cMapDijk::cMapDijk()
+    :cell_table(WINSIZEY / CELL_SIZE, vector<cCellDijk>(WINSIZEX / CELL_SIZE)), wall_brush(nullptr)
 {
 }
 
-cMap::~cMap()
+cMapDijk::~cMapDijk()
 {
 }
 
-void cMap::Init()
+void cMapDijk::Init()
 {
     //벽 색깔은 검정색
     wall_brush = CreateSolidBrush(RGB(0, 0, 0));
@@ -21,14 +21,14 @@ void cMap::Init()
         height_brushes[i] = CreateSolidBrush(RGB(25 * i, 0x99, 0));
 }
 
-void cMap::Release()
+void cMapDijk::Release()
 {
     DeleteObject(wall_brush);
     for (auto iter : height_brushes)
         DeleteObject(iter);
 }
 
-void cMap::Update()
+void cMapDijk::Update()
 {
     if (KEYMANAGER.IsOnceKeyDown(VK_LBUTTON))
     {
@@ -60,7 +60,7 @@ void cMap::Update()
     }
 }
 
-void cMap::Render(HDC hdc)
+void cMapDijk::Render(HDC hdc)
 {
     for (int i = 0; i < cell_table.size(); ++i)
     {
