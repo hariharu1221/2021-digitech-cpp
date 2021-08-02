@@ -1,9 +1,9 @@
 #pragma once
-#include "cMap.h"
+#include "cMapDijk.h"
 class cMainGame final
 {
 private:
-    cMap map;
+    cMapDijk map;
 public:
     void Init();
     void Release();
