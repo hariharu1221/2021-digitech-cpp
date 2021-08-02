@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2750 - 수 정렬하기.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="2751 - 수 정렬하기 2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="10989 - 수 정렬하기 3.cpp">
+    <ClCompile Include="sorting.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
