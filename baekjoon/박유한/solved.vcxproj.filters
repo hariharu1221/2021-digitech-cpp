@@ -36,5 +36,8 @@
     <ClCompile Include="BaekJoon\1072-게임.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BaekJoon\1018-체스판-다시-칠하기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
