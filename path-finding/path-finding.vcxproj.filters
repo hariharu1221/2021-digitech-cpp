@@ -39,11 +39,14 @@
     <ClInclude Include="cMainGame.h">
       <Filter>MainGame</Filter>
     </ClInclude>
-    <ClInclude Include="cMap.h">
+    <ClInclude Include="cMapDijk.h">
       <Filter>MainGame\Map</Filter>
     </ClInclude>
     <ClInclude Include="cKeyManager.h">
       <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="cMapAStar.h">
+      <Filter>MainGame\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,11 +59,14 @@
     <ClCompile Include="cMainGame.cpp">
       <Filter>MainGame</Filter>
     </ClCompile>
-    <ClCompile Include="cMap.cpp">
+    <ClCompile Include="cMapDijk.cpp">
       <Filter>MainGame\Map</Filter>
     </ClCompile>
     <ClCompile Include="cKeyManager.cpp">
       <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="cMapAStar.cpp">
+      <Filter>MainGame\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

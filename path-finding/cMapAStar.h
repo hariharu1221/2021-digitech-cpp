@@ -4,18 +4,18 @@
 using std::vector;
 
 //CELL의 높이는 0~10으로 잡자
-struct cCell
+struct cCellAStar
 {
     bool is_wall;
     int height;
 
-    cCell()
+    cCellAStar()
         :is_wall(false), height(5)
     {
     }
 };
 
-class cMap
+class cMapAStar
 {
 public:
     static constexpr int CELL_SIZE = 50;
@@ -23,10 +23,10 @@ public:
     HBRUSH wall_brush;
     vector<HBRUSH> height_brushes;
 
-    vector<vector<cCell>> cell_table;
+    vector<vector<cCellAStar>> cell_table;
 public:
-    cMap();
-    ~cMap();
+    cMapAStar();
+    ~cMapAStar();
 
     void Init();
     void Release();

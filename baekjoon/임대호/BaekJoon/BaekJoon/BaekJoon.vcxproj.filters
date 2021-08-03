@@ -19,6 +19,12 @@
     <Filter Include="Sort">
       <UniqueIdentifier>{39d673f5-7bc9-4ead-86c0-52c3569473b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="10162 전자레인지">
+      <UniqueIdentifier>{4ef519ad-bf31-4c3d-8263-b3210cdba931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2720 세탁소">
+      <UniqueIdentifier>{9ba299dc-46b2-4f96-ae2e-e4f66aa9ccfa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fibonacci.cpp">
@@ -26,6 +32,12 @@
     </ClCompile>
     <ClCompile Include="sort.cpp">
       <Filter>Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="10162 전자레인지.cpp">
+      <Filter>10162 전자레인지</Filter>
+    </ClCompile>
+    <ClCompile Include="2720 세탁소.cpp">
+      <Filter>2720 세탁소</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

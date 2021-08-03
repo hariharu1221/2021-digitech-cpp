@@ -139,7 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BaekJoon.cpp" />
+    <ClCompile Include="laundryStore.cpp" />
+    <ClCompile Include="Sort.cpp" />
+    <ClCompile Include="microwave.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
