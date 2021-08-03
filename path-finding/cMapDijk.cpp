@@ -11,8 +11,8 @@ cMapDijk::cMapDijk()
     , select_brush(nullptr)
     , target_brush(nullptr)
     , now_dijk_brush(nullptr)
-    , find_start(empty_pos)
-    , find_end(empty_pos)
+    , find_start(empty_dijk_pos)
+    , find_end(empty_dijk_pos)
     , is_find_start(false)
     , remain_loop_count(0)
 {
@@ -84,11 +84,15 @@ void cMapDijk::Update_Find()
         AddOpenList(pos, min_distance, now_height, pos.first + 1, pos.second);
         AddOpenList(pos, min_distance, now_height, pos.first, pos.second - 1);
         AddOpenList(pos, min_distance, now_height, pos.first, pos.second + 1);
+        AddOpenList(pos, min_distance, now_height, pos.first - 1, pos.second + 1);
+        AddOpenList(pos, min_distance, now_height, pos.first + 1, pos.second + 1);
+        AddOpenList(pos, min_distance, now_height, pos.first - 1, pos.second - 1);
+        AddOpenList(pos, min_distance, now_height, pos.first + 1, pos.second - 1);
     }
 
     if (KEYMANAGER.IsOnceKeyDown('1'))
         remain_loop_count = 1;
-    if (KEYMANAGER.IsOnceKeyDown(VK_RETURN))
+    if (KEYMANAGER.IsOnceKeyDown(VK_HOME))
     {
         if (dijk_open.empty())
             is_find_start = false;
@@ -148,10 +152,10 @@ void cMapDijk::Update_Input()
         {
             if (cell_table[mouse_idx.first][mouse_idx.second].is_wall);
             else if (find_start == mouse_idx)
-                find_start = empty_pos;
+                find_start = empty_dijk_pos;
             else if (find_end == mouse_idx)
-                find_end = empty_pos;
-            else if (find_start == empty_pos)
+                find_end = empty_dijk_pos;
+            else if (find_start == empty_dijk_pos)
                 find_start = mouse_idx;
             else
                 find_end = mouse_idx;
@@ -160,7 +164,7 @@ void cMapDijk::Update_Input()
 
     if (KEYMANAGER.IsOnceKeyDown(VK_RETURN))
     {
-        if (find_start != empty_pos && find_end != empty_pos)
+        if (find_start != empty_dijk_pos && find_end != empty_dijk_pos)
         {
             //탐색 데이터 리셋
             for (auto& iter : cell_table)

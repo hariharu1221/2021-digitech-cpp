@@ -9,7 +9,7 @@ using std::pair;
 
 using position_type = pair<int, int>;
 
-static constexpr position_type empty_pos = std::make_pair(-1, -1);
+static constexpr position_type empty_dijk_pos = std::make_pair(-1, -1);
 
 //CELL의 높이는 0~10으로 잡자
 struct cCellDijk
@@ -22,7 +22,7 @@ struct cCellDijk
     position_type last_cell;
 
     cCellDijk()
-        :is_wall(false), height(3), is_visit(false), min_distance(0x7fffffff), last_cell(empty_pos)
+        :is_wall(false), height(3), is_visit(false), min_distance(0x7fffffff), last_cell(empty_dijk_pos)
     {
     }
 
@@ -30,7 +30,7 @@ struct cCellDijk
     {
         is_visit = false;
         min_distance = 0x7fffffff;
-        last_cell = empty_pos;
+        last_cell = empty_dijk_pos;
     }
 };
 
