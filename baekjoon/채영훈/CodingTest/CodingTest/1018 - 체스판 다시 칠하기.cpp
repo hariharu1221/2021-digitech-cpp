@@ -19,8 +19,8 @@ int main()
 	vector<string> chess(N);
 	vector<int> W, B;
 
-	W.resize(N + 1, 0);
-	B.resize(N + 1, 0);
+	W.resize((down + 1) * (right + 1), 0);
+	B.resize((down + 1) * (right + 1), 0);
 
 	for (size_t i = 0; i < N; i++)
 		cin >> chess[i];
@@ -36,51 +36,63 @@ int main()
 		//cout << "\t\ti loop : " << i << "\t" << y << "\n";
 		// j : x -> 7 + x ( 8 )
 		x = 0;
-		for (j = x; j < 8 + x; j++)
+		for (j = x; j < 8 + x; j++) // 
 		{
-			// i + 1 : È¦¼ö -> Â¦¼ö , Â¦¼ö -> È¦¼ö
-			if ((i + 1) % 2 == 0) // ¿ø·¡ i°¡ È¦¼ö
+			if ((i + 1) % 2 == 1)// i = Â¦ ( 0 )
 			{
-				if ((j + 1) % 2 == 0) // ¿ø·¡ j°¡ È¦¼ö
+				if ((j + 1) % 2 == 1) // Â¦
 				{
 					if (chess[i][j] != 'W')
-						++W[i];
-					else
-						++B[i];
-				}
-				else // Â¦¼ö ( 0µµ Æ÷ÇÔ )
-				{
+						++W[y * (right + 1) + x];
 					if (chess[i][j] != 'B')
-						++B[i];
-					else
-						++W[i];
+						++B[y * (right + 1) + x];
 				}
-			}
-			else // ¿ø·¡ i°¡ Â¦¼ö ( 0µµ Æ÷ÇÔ )
-			{
-				if ((j + 1) % 2 == 0) // ¿ø·¡ j°¡ È¦¼ö
-				{
-					if (chess[i][j] != 'B')
-						++B[i];
-					else
-						++W[i];
-				}
-				else // Â¦¼ö ( 0µµ Æ÷ÇÔ )
+				else
 				{
 					if (chess[i][j] != 'W')
-						++W[i];
-					else
-						++B[i];
+						++B[y * (right + 1) + x];
+					if (chess[i][j] != 'B')
+						++W[y * (right + 1) + x];
 				}
 			}
+			if ((i + 1) % 2 == 0)// i = È¦
+			{
+				if (j % 2 == 1) // È¦
+				{
+					if (chess[i][j] != 'W')
+						++W[y * (right + 1) + x];
+					if (chess[i][j] != 'B')
+						++B[y * (right + 1) + x];
+				}
+				else
+				{
+					if (chess[i][j] != 'W')
+						++B[y * (right + 1) + x];
+					if (chess[i][j] != 'B')
+						++W[y * (right + 1) + x];
+				}
+			}
+
 			//cout << "j loop : " << j << "\t" << x << "\n";
 			if (x < right && j == 7 + x)
-				++x, j = x;
+				j = x, ++x;
 		}
 		// ¿©±â´Â j°¡ right¸¸Å­ ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿ÇÑÈÄ¿¡ µé¾î¿È, ±×·¡¼­ y¸¦ ´õÇØ¼­ ³»·ÁÁÜ
 		if (y < down)
-			++y;
+			if (i == 7 + y)
+				i = y, ++y;
 	}
+
+	int min_val = 10000000000;
+
+	for (size_t y = 0; y < down + 1; y++)
+		for (size_t x = 0; x < right + 1; x++)
+		{
+			int temp = min(W[y * (right + 1) + x], B[y * (right + 1) + x]);
+			if (min_val > temp) min_val = temp;
+		}
+
+	cout << min_val << endl;
 
 	return 0;
 }
