@@ -27,5 +27,8 @@
     <ClCompile Include="BaekJoon\5585-거스름돈.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BaekJoon\2720-세탁소-사장-동혁.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
