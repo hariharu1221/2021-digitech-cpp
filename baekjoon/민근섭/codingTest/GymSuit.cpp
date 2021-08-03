@@ -5,7 +5,7 @@ using namespace std;
 
 int solution(int n, vector<int> lost, vector<int> reserves);
 
-int main()
+int GymMain()
 {
 	vector<int> lost;
 	lost.push_back(2);
