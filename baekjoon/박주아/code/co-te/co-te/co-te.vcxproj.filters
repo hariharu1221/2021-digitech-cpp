@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{5761272a-0535-41f6-bb71-0ce6a3dcf41b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="문제 cpp">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="문제 h">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="B2747.cpp">
+      <Filter>문제 cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="B19939.cpp">
+      <Filter>문제 cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="B2750.cpp">
+      <Filter>문제 cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="B2751.cpp">
+      <Filter>문제 cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="P1.cpp">
+      <Filter>문제 cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="B2747.h">
+      <Filter>문제 h</Filter>
+    </ClInclude>
+    <ClInclude Include="B19939.h">
+      <Filter>문제 h</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="B2750.h">
+      <Filter>문제 h</Filter>
+    </ClInclude>
+    <ClInclude Include="B2751.h">
+      <Filter>문제 h</Filter>
+    </ClInclude>
+    <ClInclude Include="P1.h">
+      <Filter>문제 h</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
