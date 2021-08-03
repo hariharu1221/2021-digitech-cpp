@@ -11,7 +11,7 @@ using ll = long long;
 
 int main()
 {
-	int N, M, down = 0, right = 0;
+	int N, M, down = 0, right = 0, x = 0, y = 0;
 	cin >> N >> M;
 
 	down = N - 8, right = M - 8;
@@ -19,58 +19,67 @@ int main()
 	vector<string> chess(N);
 	vector<int> W, B;
 
-	W.resize(down * right + 1, 0);
-	B.resize(down * right + 1, 0);
+	W.resize(N + 1, 0);
+	B.resize(N + 1, 0);
 
 	for (size_t i = 0; i < N; i++)
 		cin >> chess[i];
 
-	int x = 0;
-	int y = 0;
-	for (size_t i = y; i < 8 + y;)
+	// x : 0 -> right
+	// y : 0 -> down
+
+	// i : y -> 7 + y ( 8 )
+	int i = y, j = x;
+	for (; i < 8 + y; i++)
 	{
-		for (size_t j = x; j < 8 + x;)
+		//cout << "\n" << "\n";
+		//cout << "\t\ti loop : " << i << "\t" << y << "\n";
+		// j : x -> 7 + x ( 8 )
+		x = 0;
+		for (j = x; j < 8 + x; j++)
 		{
-			// ------- W 의 조건 ----------
-			if ((i + 1) % 2 == 1)
+			// i + 1 : 홀수 -> 짝수 , 짝수 -> 홀수
+			if ((i + 1) % 2 == 0) // 원래 i가 홀수
 			{
-				if ((j + 1) % 2 == 1) // W의 조건
+				if ((j + 1) % 2 == 0) // 원래 j가 홀수
 				{
 					if (chess[i][j] != 'W')
-						++W[y * right + x];
+						++W[i];
 					else
-						++B[y * right + x];
+						++B[i];
 				}
-				else // B의 조건
+				else // 짝수 ( 0도 포함 )
 				{
 					if (chess[i][j] != 'B')
-						++W[y * right + x];
+						++B[i];
 					else
-						++B[y * right + x];
+						++W[i];
 				}
 			}
-			else
+			else // 원래 i가 짝수 ( 0도 포함 )
 			{
-				if ((j + 1) % 2 == 0)// W의 조건
+				if ((j + 1) % 2 == 0) // 원래 j가 홀수
+				{
+					if (chess[i][j] != 'B')
+						++B[i];
+					else
+						++W[i];
+				}
+				else // 짝수 ( 0도 포함 )
 				{
 					if (chess[i][j] != 'W')
-						++W[y * right + x];
+						++W[i];
 					else
-						++B[y * right + x];
-				}
-				else // B의 조건
-				{
-					if (chess[i][j] != 'B')
-						++W[y * right + x];
-					else
-						++B[y * right + x];
+						++B[i];
 				}
 			}
-			j++;
-			if (x + 1 < right && j == 8 + x) ++x, j = x;
+			//cout << "j loop : " << j << "\t" << x << "\n";
+			if (x < right && j == 7 + x)
+				++x, j = x;
 		}
-		i++;
-		if (y + 1 < down && i == 8 + y) ++y, i = y, x = 0;
+		// 여기는 j가 right만큼 오른쪽으로 이동한후에 들어옴, 그래서 y를 더해서 내려줌
+		if (y < down)
+			++y;
 	}
 
 	return 0;
